@@ -1,13 +1,23 @@
 package csce247.state;
 
 import java.util.ArrayList;
-
+/**
+ * One of the three states, used to represent when the xbox console is selected. Methods switch between
+ * states and print messages. Also displays an arraylist of games.
+ * @author zacharystthomas
+ *
+ */
 public class XboxState implements State{
 
 	private GameConsole gameConsole;
 	private ArrayList<String> games;
 	
-	
+	/**
+	 * Constructor.
+	 * Adds string values to games ArrayList.
+	 * @param gameConsole: Instance of gameConsole to set this class's GameConsole as.
+	 *
+	 */
 	public XboxState(GameConsole gameConsole) {
 		this.gameConsole = gameConsole;
 		this.games = new ArrayList<String>();
@@ -17,14 +27,19 @@ public class XboxState implements State{
 		games.add("Hitman 2");
 		games.add("Toy Soilders: Cold War");
 	}
+	/**
+	 * Changes gameConsole's state varaible to the HomeState instance used by gameConsole, and informs user.
+	 */
 	public void pressHomeButton() {
-		// TODO Auto-generated method stub
+		
 		System.out.println("Displaying Home Screen.....");
 		gameConsole.setState(gameConsole.getHomeState());
 	}
-
+	/**
+	 * Prints out the games ArrayList.
+	 */
 	public void pressGameButton() {
-		// TODO Auto-generated method stub
+		
 		System.out.println("You have the following games: ");
 		for(String game : games){
 			System.out.println(game);
@@ -32,15 +47,20 @@ public class XboxState implements State{
 		}
 		
 	}
+	/**
+	 * Informs user the XboxState is already being viewed.
+	 */
 
 	public void pressXboxButton() {
-		// TODO Auto-generated method stub
+		
 		System.out.println("You are already viewing XBox.");
 	}
 
-
+	/**
+	 * Changes gameConsole's state varaible to the NintendoState instance used by gameConsole, and informs user.
+	 */
 	public void pressNintendoButton() {
-		// TODO Auto-generated method stub
+		
 		System.out.println("Starting Nintendo.....");
 		gameConsole.setState(gameConsole.getNintendoState());
 	}
